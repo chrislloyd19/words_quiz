@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 	$('#next').on('click', function() {
 
-		// returns an object with the word, array of definitions, and right definition 
+		// pass QuestionObject into underscore template 
 		templateData = getQuestionObject();
 		$('#word').html(template(templateData));
 
@@ -26,6 +26,10 @@ $(document).ready(function() {
 
 	});
 
+	// QuestionObject:
+	//   word : the question's word
+	//   definitions : array of definitions, including the word's
+	//   answer : the right definition 
 	function getQuestionObject() {
 		var random =  Math.floor(Math.random() * words.length);
 		var definitions = [];
@@ -33,13 +37,24 @@ $(document).ready(function() {
 		definitions.push(words[random].definition);
 
 		for (var i = 0; i < 4; i++) {
-			var random =  Math.floor(Math.random() * words.length);
+			random =  Math.floor(Math.random() * words.length);
 			definitions.push(words[random].definition);
 		}
+
+		shuffle(definitions);
+
 		return {word: words[random].word, definitions: definitions, answer: words[random].definition};
 	}
 
-	function shuffle(arr) {
+	// shuffles an array in place
+	function shuffle (array) {
+	  var i = 0, j = 0, temp = null;
 
+	  for (i = array.length - 1; i > 0; i -= 1) {
+	    j = Math.floor(Math.random() * (i + 1))
+	    temp = array[i]
+	    array[i] = array[j]
+	    array[j] = temp
+	  }
 	}
 })
