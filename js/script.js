@@ -9,6 +9,10 @@ $(document).ready(function() {
 
 	$('#next').on('click', function() {
 
+		if($(this).val() === 'start') {
+			$(this).val('next');
+		}
+
 		// pass QuestionObject into underscore template 
 		templateData = getQuestionObject();
 		$('#word').html(template(templateData));
