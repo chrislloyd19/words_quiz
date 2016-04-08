@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 	$('#next').on('click', function() {
 
-		// returns an object with the word, array of definitions, and right definition
+		// returns an object with the word, array of definitions, and right definition 
 		templateData = getQuestionObject();
 		$('#word').html(template(templateData));
 
@@ -33,8 +33,7 @@ $(document).ready(function() {
 		definitions.push(words[random].definition);
 
 		for (var i = 0; i < 4; i++) {
-			random =  Math.floor(Math.random() * words.length);
-			console.log(words[random].definition);
+			var random =  Math.floor(Math.random() * words.length);
 			definitions.push(words[random].definition);
 		}
 		return {word: words[random].word, definitions: definitions, answer: words[random].definition};
