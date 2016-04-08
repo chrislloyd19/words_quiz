@@ -8,7 +8,18 @@
 	</head>
 
 	<body>
+		<div id="word"></div>
 		<input type="button" id="next" value="next">
+
+		<script type="text/template" class="template">
+			<h1><%- rc.word %></h1>
+			<ul>
+				<% _.each( rc.definitions, function( definition ){ %>
+					<li class='answer'><%- definition %></li>
+				<% }); %>
+			</ul>
+		</script>
+
 		<script src="js/script.js"></script>
 	</body>
 
