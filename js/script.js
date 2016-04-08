@@ -20,10 +20,15 @@ $(document).ready(function() {
 		$('.answer').on('click', function() {
 			var answer = $(this).text();
 
+			// DO SOMETHING WHEN USER SELECTS RIGHT ANSWER
 			if(answer === templateData.answer) {
 				console.log("RIGHT!");
-			} else {
+				$('#word').html("<h1>CORRECT!</h1>");
+			} 
+			// DO SOMETHING WHEN USER SELECTS WRONG ANSWER
+			else {
 				console.log("WRONG!");
+				$('#word').html("<h1>NO! WRONG!</h1><p>Actually, <em>" + templateData.word + "</em> means <em>" + templateData.answer + "</em></p>");
 			}
 
 		});
