@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 		if($(this).val() === 'start') {
 			$(this).val('next');
-			$('h1').remove();
+			$('h1, h2').remove();
 		}
 
 		// pass QuestionObject into underscore template 
